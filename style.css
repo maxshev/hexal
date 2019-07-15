@@ -148,9 +148,11 @@ header {
     line-height: 65px;
 
 }
+
 header h1 {
     display: none;
 }
+
 .triangle {
     position: absolute;
     left: 50%;
@@ -235,7 +237,7 @@ hr {
     position: absolute;
     top: 66px;
     left: 50%;
-    width: 960px;
+    width: 95%;
     transform: translate(-50%, 0);
     z-index: -4;
     border: 0.5px solid lightgrey;
@@ -247,26 +249,33 @@ hr {
     position: relative;
 }
 
-.hexagons {
+.hexagons,
+.hexagons_mobile {
     margin-top: 140px;
     display: flex;
     flex-flow: column;
     align-items: center;
     padding-bottom: 77px;
 }
+
+.hexagons_mobile {
+    display: none;
+}
+
 .hexagon:hover {
-    -webkit-filter: grayscale(100%); 
+    -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
+
 .hexagon {
     width: 180px;
     height: 207px;
     position: relative;
     display: inline-block;
     margin: 8px;
-    -webkit-mask: url(https://svgshare.com/i/5Fk.svg) no-repeat 50% 50%;
-    mask: url(https://svgshare.com/i/5Fk.svg) no-repeat 50% 50%;
-    background-size: auto;
+    -webkit-mask: url(images/template.svg) no-repeat 50% 50%;
+    mask: url(images/template.svg) no-repeat 50% 50%;
+    background-size: cover;
     background-position: center;
 }
 
@@ -274,7 +283,6 @@ hr {
     position: relative;
     text-align: center;
     margin-top: -58px;
-
 }
 
 .row:nth-child(odd):before {
@@ -385,32 +393,11 @@ hr {
     border-top: 0.5px solid lightgrey;
 }
 
-.slider {
-    position: absolute;
-    left: 451px;
-    top: 749px;
-}
-
-.slider div {
-    position: relative;
-    padding: 3;
-    margin: 1.5px;
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background-color: #ddd2c5;
-}
-
-.slider div:nth-child(3) {
-    background: #8b8784;
-}
-
 .bio {
     position: relative;
     max-height: 340px;
     max-width: 100%;
     background-color: #2eb398;
-
     padding: 66px 121px;
 }
 
@@ -437,7 +424,7 @@ hr {
     left: -22px;
     transform: translate(0, -50%);
     display: inline-block;
-    border-right: 1px solid #219d84;
+    border-left: 1px solid #219d84;
     height: 315px;
 }
 
@@ -448,6 +435,7 @@ hr {
     height: 208px;
     margin: 0;
     padding: 0;
+    background-size: cover;
     background-image: url('images/man.jpg');
     background-position-y: 1px;
     background-position-x: -121px;
@@ -455,13 +443,14 @@ hr {
 }
 
 .bio_info_about {
-    position: absolute;
-    left: 198px;
-    width: 600px;
+    position: relative;
+    display: block;
+    margin-left: 198px;
+    max-width: 700px;
 }
 
 .bio_info_about_name {
-    position: absolute;
+    position: relative;
     /* left: -3px; */
     font-size: 30px;
     font-family: 'Maven Pro', sans-serif;
@@ -475,16 +464,16 @@ hr {
     font-size: 18px;
     font-family: 'Maven Pro', sans-serif;
     color: #20816d;
-    position: absolute;
-    margin-top: 30px;
+    position: relative;
+    margin-top: 15px;
     letter-spacing: -0.25px;
 }
 
 .bio_info_about_myself {
-    position: absolute;
-    width: 580px;
+    position: relative;
+    max-width: 580px;
     line-height: 22px;
-    margin-top: 61.5px;
+    padding-top: 21.5px;
     color: white;
     font-weight: regular;
     font-family: 'Lato';
@@ -495,7 +484,7 @@ hr {
 
 .bio_info_about_social {
     position: absolute;
-    bottom: 0;
+    bottom: -40px;
     right: 0;
 }
 
@@ -514,6 +503,10 @@ hr {
     line-height: 25px;
     color: #03ac95;
     cursor: pointer;
+}
+
+.bio_info_about_social a {
+    text-decoration: none;
 }
 
 .bio_info_about_social ul li i {
@@ -554,15 +547,16 @@ hr {
 /* FOOTER */
 
 footer {
+    max-width: 1020px;
+    width: 100%;
     min-height: 565px;
     background: #323232;
     position: relative;
 }
 
 .contacts_info {
-    float: left;
-    clear: both;
-    margin-top: 62px;
+    display: block;
+    padding-top: 62px;
     margin-left: 11.764705882352941176470588235294%;
     font-size: 1.875rem;
     font-family: 'Maven Pro', sans-serif;
@@ -570,10 +564,9 @@ footer {
 }
 
 .contact_subtext {
-    float: left;
-    clear: both;
-    margin-top: 3px;
-    margin-left: 122px;
+    display: inline-block;
+    padding: 10px 0;
+    margin-left: 11.764705882352941176470588235294%;
     font-size: 1.125rem;
     font-family: 'Maven Pro', sans-serif;
     color: #a0a0a0;
@@ -581,17 +574,20 @@ footer {
 }
 
 footer .form {
-    float: left;
+    display: inline-block;
     margin-left: 11.764705882352941176470588235294%;
-    margin-top: 21px;
-    width: 580px;
+    width: 100%;
+    max-width: 580px;
+    box-sizing: border-box;
 }
 
 footer .form form input {
     font-family: 'Lato', sans-serif;
     border: 0px solid #000;
     height: 36px;
-    width: calc(100% - 15px);
+    max-width: 580px;
+    width: 100%;
+    box-sizing: border-box;
     margin-bottom: 16px;
     background-color: #454545;
     color: #969696;
@@ -604,7 +600,9 @@ footer .form form textarea {
     font-family: 'Lato', sans-serif;
     border: 0px solid #000;
     height: 135px;
-    width: calc(100% - 17px);
+    width: 100%;
+    max-width: 580px;
+    box-sizing: border-box;
     margin-bottom: 14px;
     font-size: 0.75rem;
     color: #969696;
@@ -637,7 +635,6 @@ footer .form form button:hover {
 .about-us {
     float: right;
     margin-right: 11.274509803921568627450980392157%;
-    margin-top: 17px;
     width: 185px;
     color: #bebebe;
     text-align: justify;
@@ -687,7 +684,7 @@ footer::before {
     top: 12px;
     left: 50%;
     transform: translate(-50%, 0);
-    width: 960px;
+    width: 95%;
 }
 
 footer::after {
@@ -697,12 +694,12 @@ footer::after {
     top: 551px;
     left: 50%;
     transform: translate(-50%, 0);
-    width: 960px;
+    width: 95%;
 }
 
 .copyright {
     position: absolute;
-    width: 1020px;
+    width: 100%;
     height: 43px;
     bottom: -43px;
     background-color: #222222;
@@ -715,3 +712,172 @@ footer::after {
     padding: 14px 38px;
     letter-spacing: -0.3px;
 }
+
+@media screen and (max-width: 1020px) {
+
+    .hexagons,
+    .hexagons_mobile {
+        margin-top: 80px;
+        padding-bottom: 27px;
+    }
+
+    .hexagon {
+        width: 130px;
+        height: 157px;
+    }
+
+    .hexagons>hr {
+        display: none;
+    }
+
+    .row {
+        margin-top: -48px;
+    }
+
+    .row:nth-child(odd):before,
+    .row:nth-child(odd):after {
+        height: 74px;
+    }
+
+    .bio {
+
+        padding: 66px 20px;
+    }
+
+    .bio_info:after {
+        right: -10px;
+    }
+
+    .bio_info:before {
+        left: -10px;
+    }
+
+    .bio_info_photo {
+        width: 180px;
+        height: 208px;
+        margin-left: 30px;
+    }
+
+    .bio_info_about {
+        margin-left: 250px;
+    }
+
+    .bio_info_about_myself {
+        position: relative;
+        max-width: 580px;
+        line-height: 22px;
+        margin-top: 0px;
+        color: white;
+        font-weight: regular;
+        font-family: 'Lato';
+        font-size: 12px;
+        text-align: justify;
+        letter-spacing: -0.05px;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    .contacts_info {
+        padding: 10px 0;
+        margin-left: 0;
+    }
+
+    .contact_subtext {
+        margin-left: 0;
+    }
+
+    footer .form {
+        margin: 0;
+        width: 90%;
+        max-width: none;
+    }
+
+    footer .form form input,
+    footer .form form textarea {
+        max-width: none;
+    }
+
+    footer .form form button {
+        float: none;
+    }
+
+    .about-us {
+        float: none;
+        display: inline-block;
+        margin: 20px 0;
+        width: 90%;
+    }
+
+    .social ul li,
+    .about-us {
+        text-align: center;
+        float: none;
+        font-size: 14px;
+    }
+}
+
+
+@media screen and (max-width: 760px) {
+    .hexagons {
+        display: none;
+    }
+
+    .hexagons_mobile {
+        display: flex;
+    }
+
+    .bio_info_about_myself {
+        padding-top: 14px;
+    }
+
+}
+
+@media screen and (max-width: 611px) {
+    .nav ul li {
+        z-index: 1000;
+        margin: 0 41px;
+    }
+
+    .hexagon {
+        width: 100px;
+        height: 127px;
+        margin: 8px 2px;
+    }
+
+    .row {
+        margin-top: -55px;
+    }
+
+    .row:nth-child(odd):before,
+    .row:nth-child(odd):after {
+        display: none;
+    }
+
+    .bio {
+        padding: 66px 20px;
+    }
+
+    .bio_info_photo {
+        width: 120px;
+        height: 248px;
+        background-size: 240%;
+        background-position: center;
+        margin-left: 5px;
+        top: -90px;
+        left: 0;
+    }
+
+    .bio_info_about {
+        top: -40px;
+        margin-left: 140px;
+    }
+
+    .bio_info_about_social {
+        position: absolute;
+        bottom: -50px;
+    }
+}
+
+/* hr */
