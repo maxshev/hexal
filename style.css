@@ -425,7 +425,7 @@ hr {
     transform: translate(0, -50%);
     display: inline-block;
     border-left: 1px solid #219d84;
-    height: 315px;
+    height: 90%;
 }
 
 .bio_info_photo {
@@ -880,4 +880,45 @@ footer::after {
     }
 }
 
-/* hr */
+@media screen and (max-width: 611px) {
+    .nav ul li {
+        z-index: 1000;
+        margin: 0 7px;
+    }
+
+    .nav ul li:nth-child(2) {
+        display: none;
+    }
+
+    .hexagon {
+        width: 80px;
+        height: 107px;
+        margin: 8px 2px;
+    }
+
+    .bio_info {
+        height: 100%;
+    }
+
+    .bio_info_about_social {
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .bio_info_photo {
+        width: 120px;
+        height: 248px;
+        background-size: 240%;
+        background-position: center;
+        margin-left: 5px;
+        top: -80px;
+        left: 0;
+    }
+
+    .bio_info:after,
+    .bio_info:before {
+        height: 100%;
+        top: 45%;
+        transform: translate(0, -50%);
+    }
+}
